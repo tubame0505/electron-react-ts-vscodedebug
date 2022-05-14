@@ -3,6 +3,8 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const isDev = process.env.NODE_ENV === 'development';
+const noWatch = process.env.NO_WATCH === "true";
+const watchFlag = !noWatch && isDev;
 
 const common: Configuration = {
   mode: isDev ? 'development' : 'production',
@@ -30,7 +32,7 @@ const common: Configuration = {
       },
     ],
   },
-  watch: isDev,
+  watch: watchFlag,
   devtool: isDev ? 'inline-source-map' : undefined,
 };
 

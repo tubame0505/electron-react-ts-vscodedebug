@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "dist/main.js",
   "scripts": {
+  	"compile": "tsc -p tsconfig.main.json && cross-env NODE_ENV=\"development\" NO_WATCH=\"true\" webpack",
     "dev": "run-p dev:*",
     "build": "cross-env NODE_ENV=\"production\" webpack --progress",
     "predev": "rimraf dist",
